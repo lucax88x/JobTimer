@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42F996DE-9326-4755-813D-10CE725A10C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobTimer.WebApplication.ViewModels</RootNamespace>
+    <AssemblyName>JobTimer.WebApplication.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TypeLite, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.Lib.1.4.0\lib\net4\TypeLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TypeLite.Net4, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.Lib.1.4.0\lib\net4\TypeLite.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\LastVisited.cs" />
+    <Compile Include="Common\Menu.cs" />
+    <Compile Include="Common\TopNavBar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApi\Account\BindingModels\LoginBindingModel.cs" />
+    <Compile Include="WebApi\Account\BindingModels\ObtainLocalAccessToken.cs" />
+    <Compile Include="WebApi\Account\BindingModels\RegisterBindingModel.cs" />
+    <Compile Include="WebApi\Account\BindingModels\RegisterExternalBindingModel.cs" />
+    <Compile Include="WebApi\Account\ViewModels\LogoutViewModel.cs" />
+    <Compile Include="WebApi\Account\ViewModels\LoginViewModel.cs" />
+    <Compile Include="WebApi\Account\ViewModels\VerifyExternalLoginViewModel.cs" />
+    <Compile Include="WebApi\Account\ViewModels\RegisterExternalViewModel.cs" />
+    <Compile Include="WebApi\Account\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="WebApi\AdminUser\Models\UserSimpleJson.cs" />
+    <Compile Include="WebApi\AdminUser\ViewModels\GetRolesViewModel.cs" />
+    <Compile Include="WebApi\BaseViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\ChartViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetMonthlyLunchTimesViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetMonthlyLunchTotalsViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetMonthlyTimesViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetMonthlyTotalsViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetWeeklyLunchTimesViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetWeeklyLunchTotalsViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetWeeklyTotalsViewModel.cs" />
+    <Compile Include="WebApi\Common\Identity\Role\RoleSimpleJson.cs" />
+    <Compile Include="WebApi\Common\Identity\User\UserJson.cs" />
+    <Compile Include="WebApi\AdminUser\BindingModels\DeleteUserBindingModel.cs" />
+    <Compile Include="WebApi\AdminUser\BindingModels\GetUsersBindingModel.cs" />
+    <Compile Include="WebApi\AdminUser\BindingModels\ReadUserBindingModel.cs" />
+    <Compile Include="WebApi\AdminUser\BindingModels\SaveUserBindingModel.cs" />
+    <Compile Include="WebApi\AdminUser\Models\UserGridJson.cs" />
+    <Compile Include="WebApi\AdminUser\ViewModels\DeleteUserViewModel.cs" />
+    <Compile Include="WebApi\AdminUser\ViewModels\GetUsersViewModel.cs" />
+    <Compile Include="WebApi\AdminUser\ViewModels\ReadUserViewModel.cs" />
+    <Compile Include="WebApi\AdminUser\ViewModels\SaveUserViewModel.cs" />
+    <Compile Include="WebApi\Data\BindingModels\SearchPagesBindingModel.cs" />
+    <Compile Include="WebApi\Data\Models\Search\SearchItem.cs" />
+    <Compile Include="WebApi\Data\ViewModels\SearchPagesViewModel.cs" />
+    <Compile Include="WebApi\Chart\ViewModels\GetWeeklyTimesViewModel.cs" />
+    <Compile Include="WebApi\Master\ViewModels\GetUserDataViewModel.cs" />
+    <Compile Include="WebApi\Master\ViewModels\UpdateUserDataViewModel.cs" />
+    <Compile Include="WebApi\Master\ViewModels\UserDataViewModel.cs" />
+    <Compile Include="WebApi\Timer\BindingModels\GetStatusBindingModel.cs" />
+    <Compile Include="WebApi\Timer\BindingModels\SaveExitBindingModel.cs" />
+    <Compile Include="WebApi\Timer\BindingModels\SaveExitLunchBindingModel.cs" />
+    <Compile Include="WebApi\Timer\BindingModels\SaveEnterLunchBindingModel.cs" />
+    <Compile Include="WebApi\Timer\BindingModels\SaveEnterBindingModel.cs" />
+    <Compile Include="WebApi\Timer\BindingModels\SaveBindingModel.cs" />
+    <Compile Include="WebApi\Timer\ViewModels\SaveEnterLunchViewModel.cs" />
+    <Compile Include="WebApi\Timer\ViewModels\SaveExitLunchViewModel.cs" />
+    <Compile Include="WebApi\Timer\ViewModels\SaveExitViewModel.cs" />
+    <Compile Include="WebApi\Timer\ViewModels\SaveEnterViewModel.cs" />
+    <Compile Include="WebApi\Timer\ViewModels\GetStatusViewModel.cs" />
+    <Compile Include="WebApi\Home\BindingModels\SaveShortcutsBindingModel.cs" />
+    <Compile Include="WebApi\Home\ViewModels\GetShortcutsViewModel.cs" />
+    <Compile Include="WebApi\Home\ViewModels\SaveShortcutsViewModel.cs" />
+    <Compile Include="WebApi\Master\BindingModels\SaveAsLastVisitedBindingModel.cs" />
+    <Compile Include="WebApi\Master\Models\BundleContainer.cs" />
+    <Compile Include="WebApi\Master\ViewModels\GetBundlesViewModel.cs" />
+    <Compile Include="WebApi\Master\ViewModels\GetLastVisitedsViewModel.cs" />
+    <Compile Include="WebApi\Master\ViewModels\SaveAsLastVisitedViewModel.cs" />
+    <Compile Include="WebApi\Timer\ViewModels\SaveViewModel.cs" />
+    <Compile Include="WebApi\TypeAheadBindingModel.cs" />
+    <Compile Include="WebApi\Common\GridData.cs" />
+    <Compile Include="WebApi\Common\ReadData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebApi\Chart\BindingModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobTimer.WebApplication.TypeScript\JobTimer.WebApplication.TypeScript.csproj">
+      <Project>{9bdb72bf-361a-4ec2-a07a-079ac69bed13}</Project>
+      <Name>JobTimer.WebApplication.TypeScript</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)\..\..\tools\TypeScript\compiler\TypeScript.Compiler.exe</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

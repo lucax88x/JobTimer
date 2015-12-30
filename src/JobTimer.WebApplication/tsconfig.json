@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "module": "commonjs",
+        "target": "ES5",
+        "outDir": "app",
+        "rootDir":  "src"
+    }    
+}

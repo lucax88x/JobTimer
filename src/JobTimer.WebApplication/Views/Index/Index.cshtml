@@ -1,0 +1,37 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = Request.QueryString["SPA"] == "1" ? null : "~/Views/Master/Master.cshtml";
+}
+@Styles.Render("~/css/home")
+<div hidden style="display: none;">
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-12 top10">
+            <div class="panel panel-single panel-inverse">
+                <div class="panel-heading panel-heading-default relative" role="tab">
+                    <div class="accordion-toggle" data-toggle="collapse" href="#cPages">
+                        <span class="fa fa-link"></span> Pagine
+                        <button id="btn-editable-shortcuts" class="btn btn-default btn-editable" ng-click="shortcutsEditable()"><i class="fa fa-cogs"></i></button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="cPages" class="panel-collapse collapse in" role="tabpanel">
+                    <div class="panel-body">
+                        <div ng-class="{'editable': editable}" ng-sortable="shortcutSortableConfig" locker="shortcutLocker">
+                            <div  ng-attr-id="{{ 'tile-' + item.Id }}" class="thumbnail tile tile-wide tile-inverse shortcut movable" ng-repeat="item in shortcuts">
+                                <button class="btn btn-danger remover" ng-click="removeShortcut(item)" ng-show="editable"><i class="fa fa-times"></i></button>
+                                <a href="{{item.Url}}" class="fa-links">
+                                    <h4 class="tile-text"><span ng-bind="item.Name"></span></h4>
+                                    <i class="fa-3x {{item.Icon}}"></i>
+                                </a>
+                            </div>
+                            <div class="thumbnail tile tile-wide tile-green" ng-click="addFromMenu()" ng-show="editable || shortcuts.length === 0">
+                                <h4 class="tile-text">Add</h4>
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

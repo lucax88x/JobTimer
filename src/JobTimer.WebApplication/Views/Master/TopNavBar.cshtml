@@ -1,0 +1,23 @@
+﻿@model JobTimer.WebApplication.ViewModels.Common.TopNavBar
+
+
+<div class="top-right">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @{Html.RenderAction("ExitTimeEstimated", "Master");}
+        </li>
+        @if (Model.Admin)
+        {
+            <li class="last-visited hidden-xs">
+                @{ Html.RenderAction("LastVisiteds", "Master"); }
+            </li>
+            <li class="search inverse hidden-xs">
+                <div class="fadein fadeout ng-hide" ng-show="searchVisible">
+                    <input type="text" class="form-control inverse" name="inpSearch" placeholder="Cerca" search="search" to-focus="searchVisible === true">
+                </div>
+                <button class="btn btn-inverse fadein fadeout" ng-click="doSearch()" ng-hide="searchVisible"><i class="fa fa-search"></i></button>
+            </li>
+        }
+        @{Html.RenderAction("UserData", "Master");}
+    </ul>
+</div>

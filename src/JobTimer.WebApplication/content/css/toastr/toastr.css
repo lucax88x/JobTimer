@@ -1,0 +1,9 @@
+﻿.toast-top-right {
+    top: 60px;
+    right: 12px;
+}
+
+body.without-top .toast-top-right {
+    top: 12px;
+    right: 12px;
+}

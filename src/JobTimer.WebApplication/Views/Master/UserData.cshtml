@@ -1,0 +1,23 @@
+﻿<li class="dropdown" id="alert" dropdown="alert" dropdown-hidden="alert-dropdown-closed" ng-controller="userData">
+
+    <div class="btn-group">
+        <button id="btn-notifications" class="btn btn-success" ng-class="{ 'btn-success' : !hasNewNotifications(), 'btn-danger' : hasNewNotifications()}" data-toggle="dropdown" data-target="#alert" aria-expanded="true"><span class="badge" ng-show="hasNewNotifications()" ng-bind="getNewNotificationsCount()"></span><i class="fa fa-check-circle" ng-show="!hasNewNotifications()"></i></button>
+        <button id="btn-logout" locker="logoutLocker" class="btn btn-danger" ng-click="logout()"><span class="hidden-xs" ng-bind="userData.email"></span>&nbsp;<i class="fa fa-sign-out"></i></button>
+    </div>
+    
+    <ul class="dropdown-menu fixed-dropdown-menu alert-dropdown" ng-hide="notifications.length === 0">
+        <li class="notifications" ng-repeat="not in notifications">
+            <div class="row notification" data-ng-class="{new : not.isNew}">
+                <div class="col-xs-2">
+                    <span class="strong" ng-bind="not.Username"></span>
+                </div>
+                <div class="col-xs-6">
+                    <span ng-bind="not.Action"></span>
+                </div>
+                <div class="col-xs-4 top2">
+                    <span class="label pull-right" ng-class="{ 'label-default' : !not.isNew, 'label-inverse' : not.isNew }" ng-bind="not.Date | date : 'dd/MM/yyyy HH:mm:ss'"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</li>

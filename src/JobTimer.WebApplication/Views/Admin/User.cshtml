@@ -1,0 +1,113 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = "~/Views/_SPA.cshtml";
+}
+
+<div class="page-header">
+    <h1>Utenti</h1>
+</div>
+<div slick-grid
+     get-data-url="/api/adminuser/getusers"
+     read-data-url="/api/adminuser/readuser"
+     save-data-url="/api/adminuser/saveuser"
+     delete-data-url="/api/adminuser/deleteuser"
+     columns="columns">
+
+    <div locker="gridLocker">
+        <!-- Split button -->
+        <div class="btn-group">
+            <button class="btn btn-default" ng-click="refresh()">Aggiorna <i class="fa fa-refresh"></i></button>
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><button class="btn" ng-click="add()">Aggiungi <i class="fa fa-plus"></i></button></li>
+                <li><button class="btn" ng-click="modify()" ng-disabled="disableModify">Modifica <i class="fa fa-pencil"></i></button></li>
+                <li><button class="btn" ng-click="delete()" ng-disabled="disableModify">Cancella <i class="fa fa-trash-o"></i></button></li>
+            </ul>
+        </div>
+        <div class="grid top25" style="height: 200px;"></div>
+    </div>
+</div>
+
+<div class="btn-group-vertical modal-buttons fadein fadeout" ng-show="modalButtonShow">
+    <button type="button" class="btn btn-danger" ng-click="closeModal()"><i class="fa fa-times fa-2x"></i></button>
+    <button type="button" class="btn btn-success" ng-click="confirmAddOrUpdate()"><i class="fa fa-save fa-2x"></i></button>
+</div>
+<div class="modal fade" modal-visible="itemModalShow" modal-shown="onItemModalShown()" modal-hide="onItemModalHide()">
+    <div class="modal-dialog big">
+        <div class="modal-content" locker="itemModalLocker">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Aggiungi/Modifica Utente <span ng-bind="item.Name"></span></h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-sm-12 col-md-6">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name="inpName" placeholder="Nome Utente" ng-model="item.UserName">
+                        </div>
+                        <div class="form-group col-sm-12 col-md-6">
+                            <label>Email (maschera)</label>
+                            <input type="text" class="form-control" name="inpEmail" placeholder="Email" ng-model="item.Email">
+                        </div>
+                    </div>
+                    <div class="row fadein ng-hide" ng-hide="!isNew(item.Id)">
+                        <div class="form-group col-sm-12 col-md-6">
+                            <label>Password</label>
+                            <div class="w100">
+                                <input type="password" class="form-control" name="inpPassword" placeholder="Password" ng-model="item.Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12 col-md-12">
+                            <label>Ruoli</label>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="row center">
+                                        <div class="form-group col-sm-12 col-md-12">
+                                            Ruolo
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item" ng-repeat="role in data.Roles track by role.Id">
+                                    <div class="row center">
+                                        <div class="form-group col-sm-12 col-md-8">
+                                            <span ng-bind="role.Name"></span>
+                                        </div>
+                                        <div class="form-group col-sm-12 col-md-2">
+                                            <div class="btn-group pull-right">
+                                                <button class="btn btn-success" ng-click="addToRole(role, item)" ng-disabled="!canAddToRole(role, item)"><i class="fa fa-plus-circle"></i></button>
+                                                <button class="btn btn-danger" ng-click="removeFromRole(role, item)" ng-disabled="canAddToRole(role, item)"><i class="fa fa-minus-circle"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" modal-visible="itemRemoveModalShow">
+    <div class="modal-dialog">
+        <div class="modal-content" locker="itemRemoveModalLocker">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Rimuovi Utente <span ng-bind="item.Name"></span></h4>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler rimuovere l'elemento selezionato?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-success" data-ng-click="confirmDelete()">Conferma</button>
+            </div>
+        </div>
+    </div>
+</div>

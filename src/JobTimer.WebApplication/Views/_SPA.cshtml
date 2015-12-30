@@ -1,0 +1,4 @@
+﻿@{
+    Layout = Request.QueryString["SPA"] == "1" ? "" : "~/Views/Master/Master.cshtml";
+}
+@RenderBody()

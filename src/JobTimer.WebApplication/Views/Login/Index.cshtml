@@ -1,0 +1,113 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Job Timer">
+    <meta name="author" content="Luca Trazzi (lucax88x@gmail.com)">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Job Timer</title>
+    @Styles.Render("~/css/common")
+    @Styles.Render("~/css/login")
+</head>
+<body class="without-top" ng-app="app" ng-controller="login">
+    <div class="container">
+        <div class="row vertical-offset-100">
+            <div class="col-md-4 col-md-offset-4">
+                <section tabs locker="locker">
+                    <div class="tabs tabs-style-fillup">
+                        <nav>
+                            <ul>
+                                <li class="tab-current"><a href="#section-fillup-1" class="fa fa-big fa-sign-in"><span class="hidden-xs hidden-sm">Login</span></a></li>
+                                <li class=""><a href="#section-fillup-2" class="fa fa-big fa-registered"><span class="hidden-xs hidden-sm">Register</span></a></li>
+                                <li class=""><a href="#section-fillup-3" class="fa fa-big fa-facebook-square"><span class="hidden-xs hidden-sm">Social</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="content-wrap">
+                            <section id="section-fillup-1" class="content-current">
+                                <form accept-charset="UTF-8" role="form">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Email" name="email" type="text" ng-model="login.email" ng-disabled="disable">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="login.password" ng-disabled="disable">
+                                        </div>
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Login" ng-click="doLogin()">
+                                    </fieldset>
+                                </form>
+                            </section>
+                            <section id="section-fillup-2">
+                                <form accept-charset="UTF-8" role="form">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Email" name="reEmail" type="text" ng-model="register.email" ng-disabled="disable">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Password" name="regPassword" type="password" value="" ng-model="register.password" ng-disabled="disable">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Repeat Password" name="regRepPassword" type="password" value="" ng-model="register.confirmPassword" ng-disabled="disable">
+                                        </div>
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Register" ng-click="doRegister()">
+                                    </fieldset>
+                                </form>
+                            </section>
+                            <section id="section-fillup-3">
+                                <button class="btn btn-lg btn-facebook btn-block" type="button" data-ng-click="authExternalProvider('Facebook')"><i class="fa fa-facebook-square"></i> | Connect with Facebook</button>
+                                <button class="btn btn-lg btn-google-plus btn-block" type="button" data-ng-click="authExternalProvider('Google')"><i class="fa fa-google-plus-square"></i> | Connect with Google+</button>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" modal-visible="necessaryDataModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Email is necessary!</h4>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" placeholder="Email" name="email" type="text" ng-model="necessaryData.email" ng-disabled="disable">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-ng-click="necessaryDataClose()">Close</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/libs")
+    @Scripts.Render("~/bundles/core")
+    @Scripts.Render("~/bundles/login")
+    <script src="@Url.Content("~/signalr/hubs")"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@{
+    Layout = Request.QueryString["SPA"] == "1" ? null : "~/Views/Master/Master.cshtml";
+}
+
+<div hidden style="display: none;" locker="lock">
+    <div class="row top25">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="panel-group panel-items">
+                <chart-panel title="Weekly hours" options="getWeeklyTimes"></chart-panel>
+                <chart-panel title="Monthly hours" options="getMonthlyTimes"></chart-panel>
+                <chart-panel title="Weekly totals" options="getWeeklyTotals"></chart-panel>
+                <chart-panel title="Monthly totals" options="getMonthlyTotals"></chart-panel>
+
+                <chart-panel title="Weekly lunch hours" options="getWeeklyLunchTimes"></chart-panel>
+                <chart-panel title="Monthly lunch hours" options="getMonthlyLunchTimes"></chart-panel>
+                <chart-panel title="Weekly lunch totals" options="getWeeklyLunchTotals"></chart-panel>
+                <chart-panel title="Monthly lunch totals" options="getMonthlyLunchTotals"></chart-panel>
+            </div>
+        </div>
+    </div>
+</div>

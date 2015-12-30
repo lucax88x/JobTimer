@@ -1,0 +1,16 @@
+﻿<div class="panel panel-single panel-inverse">
+    <div class="panel-heading panel-heading-default relative" role="tab">
+        <div class="accordion-toggle relative collapsed" data-toggle="collapse" href="#cPages-{{$id}}">
+            <span class="fa fa-bar-chart"></span> <span ng-bind="title"></span>
+            <button class="btn btn-inverse" ng-click="refresh($event)"><i class="fa fa-refresh"></i></button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div id="cPages-{{$id}}" class="panel-collapse collapse" role="tabpanel">
+        <div class="panel-body">
+            <div locker="locker">
+                <chart></chart>
+            </div>
+        </div>
+    </div>
+</div>

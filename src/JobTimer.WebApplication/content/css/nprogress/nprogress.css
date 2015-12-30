@@ -1,0 +1,30 @@
+#nprogress .bar {
+    background: #FFF;
+    height: 5px;
+}
+
+body.without-top #nprogress .bar {
+    background: #333;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+    box-shadow: 0 0 10px #FFF, 0 0 5px #FFF;
+}
+
+body.without-top #nprogress .peg {
+    box-shadow: 0 0 10px #333, 0 0 5px #333;
+}
+
+body.without-top #nprogress .spinner {
+    top: 15px;
+}
+
+#nprogress .spinner {
+    top: 70px;
+}
+
+#nprogress .spinner-icon {
+    border-top-color: #333;
+    border-left-color: #333;
+}

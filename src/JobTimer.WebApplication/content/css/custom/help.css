@@ -1,0 +1,9 @@
+﻿.introjs-skipbutton {
+    color: #c00 !important;
+}
+.introjs-button:hover,
+.introjs-button:active {
+    color: #fff !important;
+    -ms-text-shadow: none;
+    text-shadow: none;
+}

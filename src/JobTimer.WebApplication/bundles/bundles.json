@@ -1,0 +1,107 @@
+﻿{
+    "Bundles": [
+        {
+            "Bundle": "sortable",
+            "Scripts": [
+                "~/bower_components/sortable/sortable.js",
+                "~/app/core/directives/sortable.js"
+            ]
+        },
+        {
+            "Bundle": "form-core",
+            "Scripts": [
+                "~/content/scripts/libs/bootstrap/bootstrap-switch.js",
+                "~/content/scripts/libs/bootstrap/bootstrap-touchspin.js"
+            ]
+        },
+        {
+            "Bundle": "form",
+            "Scripts": [
+                "~/app/core/directives/typeahead.js",
+                "~/app/core/directives/checkbox.js",
+                "~/app/core/directives/touchspin.js",
+                "~/app/core/directives/popover.js",
+                "~/app/core/factories/guid.js"
+            ]
+        },
+        {
+            "Bundle": "grid-core",
+            "Scripts": [
+                "~/content/scripts/libs/jquery/jquery.event.drag-2.2.js",
+                "~/content/scripts/libs/jquery/jquery-keycodes.js",
+                "~/content/scripts/libs/slickgrid/bootstrap-slickgrid.js"
+            ]
+        },
+        {
+            "Bundle": "grid",
+            "Scripts": [
+                "~/content/scripts/libs/slickgrid/slick.core.js",
+                "~/content/scripts/libs/slickgrid/slick.grid.js",
+                "~/content/scripts/libs/slickgrid/slick.remotemodel.js",
+                "~/content/scripts/libs/slickgrid/slick.dataview.js",
+                "~/content/scripts/libs/slickgrid/slick.rowselectionmodel.js",
+                "~/content/scripts/libs/slickgrid/slick.autotooltips.js",
+                "~/app/grid/grid.formatter.js",
+                "~/app/core/directives/grid.js"
+            ]
+        },
+        {
+            "Bundle": "chart-core",
+            "Scripts": [
+                "~/bower_components/highcharts/highcharts.src.js",
+                "~/bower_components/highcharts/highcharts-more.src.js",
+                "~/bower_components/highcharts/modules/exporting.src.js",
+                "~/bower_components/highcharts/themes/dark-unica.js"
+            ]
+        },
+        {
+            "Bundle": "admin-user",
+            "Scripts": [
+                "~/app/app/controllers/admin-user.js"
+            ]
+
+        },
+        {
+            "Bundle": "home",
+            "Scripts": [
+                "~/app/app/controllers/home.js"
+            ]
+        },
+        {
+            "Bundle": "timer-core",
+            "Scripts": [
+                "~/content/scripts/libs/classie/classie.js",
+                "~/content/scripts/libs/modernizr/modernizr.custom.js",
+                "~/content/scripts/libs/progress-button/progress-button.js",
+                "~/bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"
+                
+            ]
+        },
+        {
+            "Bundle": "timer",
+            "Scripts": [
+                "~/app/timer/timer.js",
+                "~/app/timer/directives/big-button.js",
+                "~/app/timer/directives/slider.js",
+                "~/app/timer/controllers/timer.js"                
+            ]
+        },
+        {
+            "Bundle": "charts",
+            "Scripts": [
+                "~/app/charts/charts.js",
+                "~/app/charts/directives/chart-panel.js",
+                "~/app/charts/directives/chart.js",
+                "~/app/charts/factories/get-weekly-times.js",
+                "~/app/charts/factories/get-monthly-times.js",
+                "~/app/charts/factories/get-weekly-totals.js",
+                "~/app/charts/factories/get-monthly-totals.js",
+                "~/app/charts/factories/get-weekly-lunch-times.js",
+                "~/app/charts/factories/get-monthly-lunch-times.js",
+                "~/app/charts/factories/get-weekly-lunch-totals.js",
+                "~/app/charts/factories/get-monthly-lunch-totals.js",
+                "~/app/charts/controllers/charts.js"
+            ]
+        }
+    ]
+}

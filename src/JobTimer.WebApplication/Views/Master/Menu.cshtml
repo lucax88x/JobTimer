@@ -1,0 +1,28 @@
+﻿@model JobTimer.WebApplication.ViewModels.Common.Menu
+
+<div id="menu" style="display: none" multi-menu>
+    <nav ng-click="$event.stopPropagation()">
+        <h2><i class="fa fa-arrow-left fa-lg"></i>@Model.Name</h2>
+        <ul>
+            @foreach (var item in Model.Items)
+            {
+                if (item.Items.Count > 0)
+                {
+                    <li>
+                        <a href=""><i class="@item.Icon"></i>@item.Name</a>
+                        <h2><i class="@item.Icon"></i>@item.Name</h2>
+                        <ul ng-class="{ 'shortcuts' : shortcuts}">
+                            @foreach (var child1 in item.Items)
+                            {
+                                <li>
+                                    <a href="@child1.Url"><i class="@child1.Icon"></i>@child1.Name</a>
+                                    <button class="btn btn-success btn-shortcut btn-sm" ng-show="shortcuts" ng-click="addToShortcuts({ Id: '@child1.Id', Icon: '@child1.Icon', Url: '@child1.Url', Name : '@child1.Name'})"><i class="fa fa-plus"></i></button>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+    </nav>
+</div>

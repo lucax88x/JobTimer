@@ -1,0 +1,5 @@
+﻿<div class="btn-group ng-hide" ng-controller="estimation" ng-show="visible">    
+    <button id="btn-estimatedExitTime" class="btn btn-inverse" ng-if="data.hasEstimatedExitTime"><span class="badge" ng-bind="data.estimatedExitTime | date : 'HH:mm'"></span></button>
+    <a id="btn-noEstimatedExitTime" href="/timer" class="btn btn-danger" ng-if="!data.hasEstimatedExitTime"><span class="hidden-xs">Not entered&nbsp;</span><i class="fa fa-sign-in"></i></a>
+    <button id="btn-offset" class="btn" ng-class="{ 'btn-success': data.timeOffsetType === 1, 'btn-danger': data.timeOffsetType === -1, 'btn-inverse' : data.timeOffsetType === 0}"><span class="badge" ng-bind="data.timeOffset"></span></button>
+</div>

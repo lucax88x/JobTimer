@@ -1,0 +1,38 @@
+﻿{
+    "Name": "JobTimer",
+    "Items": [
+        {
+            "Name": "Admin",
+            "Icon": "fa fa-key",
+            "Items": [
+                {
+                    "Id": "users",
+                    "Name": "Users",
+                    "Roles": [ "Admin" ],
+                    "Icon": "fa fa-users",
+                    "Url": "/admin/user"
+                }
+            ]
+        },
+        {
+            "Name": "Timer",
+            "Icon": "fa fa-hourglass-o",
+            "Items": [
+                {
+                    "Id": "timer",
+                    "Name": "Time",
+                    "Roles": [ "Admin", "TimerUser" ],
+                    "Icon": "fa fa-hourglass-o",
+                    "Url": "/timer"
+                },
+                {
+                    "Id": "charts",
+                    "Name": "Charts",
+                    "Roles": [ "Admin", "TimerUser" ],
+                    "Icon": "fa fa-bar-chart",
+                    "Url": "/timer/charts"
+                }
+            ]
+        }        
+    ]
+}

@@ -1,0 +1,1 @@
+node_modules/.bin/tsc -p ../../src/JobTimer.WebApplication --w

@@ -1,0 +1,3 @@
+﻿@model JobTimer.WebApplication.ViewModels.Common.LastVisited
+
+<select style="display: none;" data-style="btn-inverse" ng-options="vis for vis in data.LastVisiteds" ng-model="lastVisited" title="Last pages" ng-init="data.LastVisiteds = @(string.IsNullOrEmpty(Model.Urls) ? "''" : Model.Urls)" array="data.LastVisiteds"></select>

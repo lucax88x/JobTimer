@@ -35,7 +35,7 @@ namespace JobTimer {
                     }).finally(() => {
                         $scope.shortcutLocker = false;
                     });
-            };        
+            };
 
             // console make the add non sortable
             $scope.shortcutSortableConfig = {
@@ -47,7 +47,7 @@ namespace JobTimer {
                 }
             };
 
-            $scope.$on("shortcuts-added", function(evt, data) {
+            $scope.$on("shortcuts-added", (evt, data) => {
                 let alreadyPresent = _.find($scope.shortcuts, (x: ShortcutModel) => { return x.Id === data.Id });
 
                 if (angular.isUndefined(alreadyPresent)) {
@@ -56,13 +56,14 @@ namespace JobTimer {
                 }
             });
 
-            $scope.shortcutsEditable = function() {
+            $scope.shortcutsEditable = (evt: ng.IAngularEvent) => {
+                evt.stopPropagation();
+
                 $scope.editable = !$scope.editable;
-
                 $scope.$emit("shortcuts-enabled", $scope.editable);
-            }
+            };
 
-            $scope.removeShortcut = function(shortcut) {
+            $scope.removeShortcut = (shortcut) => {
                 let idx = $scope.shortcuts.indexOf(shortcut);
                 if (idx !== -1) {
                     $scope.shortcuts.splice(idx, 1);

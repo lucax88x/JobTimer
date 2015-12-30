@@ -43,7 +43,8 @@ var JobTimer;
                     saveShorcuts($scope.shortcuts);
                 }
             });
-            $scope.shortcutsEditable = function () {
+            $scope.shortcutsEditable = function (evt) {
+                evt.stopPropagation();
                 $scope.editable = !$scope.editable;
                 $scope.$emit("shortcuts-enabled", $scope.editable);
             };

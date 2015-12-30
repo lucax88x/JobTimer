@@ -10,7 +10,7 @@
                 <div class="panel-heading panel-heading-default relative" role="tab">
                     <div class="accordion-toggle" data-toggle="collapse" href="#cPages">
                         <span class="fa fa-link"></span> Pagine
-                        <button id="btn-editable-shortcuts" class="btn btn-default btn-editable" ng-click="shortcutsEditable()"><i class="fa fa-cogs"></i></button>
+                        <button id="btn-editable-shortcuts" class="btn btn-default btn-editable" ng-click="shortcutsEditable($event)"><i class="fa fa-cogs"></i></button>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -24,7 +24,7 @@
                                     <i class="fa-3x {{item.Icon}}"></i>
                                 </a>
                             </div>
-                            <div class="thumbnail tile tile-wide tile-green" ng-click="addFromMenu()" ng-show="editable || shortcuts.length === 0">
+                            <div class="thumbnail tile tile-wide tile-green ng-fade" ng-click="addFromMenu()" ng-if="editable || shortcuts.length === 0">
                                 <h4 class="tile-text">Add</h4>
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
